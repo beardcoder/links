@@ -1,16 +1,63 @@
 ---
+import { Picture } from "astro:assets";
+import headerImage from "../assets/markus.jpg";
+import config from "../config";
 
+import "@fontsource-variable/jost";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+  </head>
+  <body class="bg-stone-900 text-white dark pb-8">
+    <div class="max-w-screen-xl mx-auto">
+      <div
+        class="aspect-video overflow-hidden relative after:absolute after:from-transparent after:to-stone-900 after:h-1/2 after:bg-gradient-to-b after:bottom-0 after:left-0 after:right-0 after:z-10"
+      >
+        <Picture
+          class="-translate-y-1/4"
+          src={headerImage}
+          loading="eager"
+          formats={["avif", "webp"]}
+          widths={[420, 640, 768, 1024, 1280]}
+          sizes={`(max-width: 420px) 420px, (max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px`}
+          alt="Markus Sommer"
+        />
+      </div>
+      <div class="px-4 xl:px-0 mt-8">
+        <h1
+          class="text-center text-white text-4xl md:text-5xl lg:text-6xl uppercase font-bold mt-8"
+        >
+          {config.name}
+        </h1>
+        <p class="text-center text-stone-400 mt-4">{config.claim}</p>
+
+        <div class="grid md:grid-cols-2 gap-4 md:gap-10 mt-4">
+          {
+            config.links.map((link) => (
+              <a
+                target="_blank"
+                href={link.href}
+                class="bg-stone-800 flex py-2 flex-wrap hover:bg-stone-700 transition-colors px-4 items-center border-l-4 border-primary"
+              >
+                <span class="mr-2">
+                  <Fragment set:html={link.icon} />
+                </span>
+                {link.label}
+                {link.description && (
+                  <span class="block w-full text-sm text-stone-400 mt-2">
+                    {link.description}
+                  </span>
+                )}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
