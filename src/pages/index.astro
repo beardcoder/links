@@ -23,8 +23,8 @@ import "@fontsource-variable/jost";
           src={headerImage}
           loading="eager"
           formats={["avif", "webp"]}
-          widths={[420, 640, 768, 1024, 1280]}
-          sizes={`(max-width: 420px) 420px, (max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1280px`}
+          widths={[240, 540, 720, headerImage.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${headerImage.width}px`}
           alt="Markus Sommer"
         />
       </div>
