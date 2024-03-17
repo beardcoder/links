@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.4",
+    "@astrojs/check": "^0.5.9",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/jost": "^5.0.17",
-    "astro": "^4.4.0",
-    "astro-critters": "^2.1.1",
+    "@fontsource-variable/jost": "^5.0.18",
+    "astro": "^4.5.5",
+    "astro-critters": "^2.1.4",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.184",
+    "@iconify/json": "^2.2.192",
     "unplugin-icons": "^0.18.5"
   }
 }
